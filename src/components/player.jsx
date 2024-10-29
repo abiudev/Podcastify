@@ -81,7 +81,7 @@ export default function PodcastPlayer({ url, img }) {
       />
       <div className="flex-grow flex flex-col justify-between h-full overflow-hidden">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold truncate max-w-[60%] sm:max-w-[70%] mr-2">
+          <h3 className="text-sm font-semibold truncate max-w-[60%] sm:max-w-[70%] mr-2 mt-0">
             {episodes[currentEpisodeIndex]?.title || "Loading..."}
           </h3>
         </div>
@@ -113,7 +113,7 @@ export default function PodcastPlayer({ url, img }) {
             <audio
               src={episodes[currentEpisodeIndex].url}
               controls
-              className="w-full"
+              className="w-full h-9 mt-2"
             />
           ) : (
             <p className="text-gray-400">...</p>
