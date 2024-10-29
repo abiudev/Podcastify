@@ -1,5 +1,5 @@
 import { Card, Typography } from "@material-tailwind/react";
-import { FaPlay, FaPlus, FaShareAlt } from "react-icons/fa";
+import { FaPlayCircle, FaPlus, FaRegShareSquare } from "react-icons/fa";
 
 export default function ShowCard({ shows, onPlay }) {
   return (
@@ -20,7 +20,9 @@ export default function ShowCard({ shows, onPlay }) {
               alt={show.name}
               className="w-full h-40 object-cover rounded-t-lg"
             />
-            <div className="p-4">
+            <div className="p-4 bg-gray-100 shadow-md rounded-b-lg flex-1">
+              {" "}
+              {/* Changed background color */}
               <Typography variant="h6" className="font-bold text-gray-800">
                 {show.name}
               </Typography>
@@ -30,32 +32,47 @@ export default function ShowCard({ shows, onPlay }) {
                   : show.description}
               </Typography>
             </div>
-            <div className="p-4 flex justify-around">
-              <button
-                onClick={() => onPlay(show)}
-                className="text-green-400 hover:text-blue-700"
-              >
-                <FaPlay size={20} />
-              </button>
-              <button
-                onClick={() => console.log("Add to playlist")}
-                className="text-green-400 hover:text-blue-700"
-              >
-                <FaPlus size={20} />
-              </button>
-              <button
-                onClick={() => console.log("Share")}
-                className="text-blue-600 hover:text-blue-700"
-              >
-                <FaShareAlt size={20} />
-              </button>
+            <div className="p-4 flex justify-around items-center bg-gray-100">
+              {" "}
+              {/* Matching background color for uniformity */}
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={() => onPlay(show)}
+                  className="text-green-400 hover:text-blue-700"
+                >
+                  <FaPlayCircle size={26} />
+                </button>
+                <span className="border border-gray-400 text-xs px-2 mt-1">
+                  Play
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={() => console.log("Add to playlist")}
+                  className="text-green-400 hover:text-blue-700"
+                >
+                  <FaPlus size={20} />
+                </button>
+                <span className="border border-gray-400 text-xs px-2 mt-1">
+                  Add
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={() => console.log("Share")}
+                  className="text-blue-600 hover:text-blue-700"
+                >
+                  <FaRegShareSquare size={20} />
+                </button>
+                <span className="border border-gray-400 text-xs px-2 mt-1">
+                  Share
+                </span>
+              </div>
             </div>
           </Card>
         ))
       ) : (
-        <Typography variant="h6" className="text-center">
-          No podcasts available
-        </Typography>
+        <Typography variant="h6" className="text-center"></Typography>
       )}
     </div>
   );
