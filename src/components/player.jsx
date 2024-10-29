@@ -79,9 +79,9 @@ export default function PodcastPlayer({ url, img }) {
         alt="Podcast cover"
         className="h-full w-auto mr-4 rounded-md"
       />
-      <div className="flex-grow flex flex-col justify-between h-full">
+      <div className="flex-grow flex flex-col justify-between h-full overflow-hidden">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold truncate w-2/3 sm:w-3/4">
+          <h3 className="text-lg font-semibold truncate max-w-[60%] sm:max-w-[70%] mr-2">
             {episodes[currentEpisodeIndex]?.title || "Loading..."}
           </h3>
         </div>
