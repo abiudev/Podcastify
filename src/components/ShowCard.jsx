@@ -20,29 +20,27 @@ export default function ShowCard({ shows, onPlay }) {
               alt={show.name}
               className="w-full h-40 object-cover rounded-t-lg"
             />
-            <div className="p-4 bg-gray-100 shadow-md rounded-b-lg flex-1">
-              {" "}
-              {/* Changed background color */}
+            <div className="p-4 bg-gray-200 shadow-md rounded-b-lg flex-1">
               <Typography variant="h6" className="font-bold text-gray-800">
                 {show.name}
               </Typography>
-              <Typography className="mt-2 text-sm text-gray-600">
+              <Typography className="mt-2 text-sm text-gray-600 h-20 overflow-hidden">
+                {" "}
+                {/* Set a fixed height for the description */}
                 {show.description.length > 100
                   ? `${show.description.substring(0, 100)}...`
                   : show.description}
               </Typography>
             </div>
-            <div className="p-4 flex justify-around items-center bg-gray-100">
-              {" "}
-              {/* Matching background color for uniformity */}
+            <div className="p-1 flex justify-around items-center bg-gray-200">
               <div className="flex flex-col items-center">
                 <button
                   onClick={() => onPlay(show)}
                   className="text-green-400 hover:text-blue-700"
                 >
-                  <FaPlayCircle size={26} />
+                  <FaPlayCircle size={20} />
                 </button>
-                <span className="border border-gray-400 text-xs px-2 mt-1">
+                <span className="border rounded-md border-gray-400 text-xs px-2 mt-1">
                   Play
                 </span>
               </div>
@@ -53,7 +51,7 @@ export default function ShowCard({ shows, onPlay }) {
                 >
                   <FaPlus size={20} />
                 </button>
-                <span className="border border-gray-400 text-xs px-2 mt-1">
+                <span className="border rounded-md border-gray-400 text-xs px-2 mt-1">
                   Add
                 </span>
               </div>
@@ -64,7 +62,7 @@ export default function ShowCard({ shows, onPlay }) {
                 >
                   <FaRegShareSquare size={20} />
                 </button>
-                <span className="border border-gray-400 text-xs px-2 mt-1">
+                <span className="border rounded-md border-gray-400 text-xs px-2 mt-1">
                   Share
                 </span>
               </div>
