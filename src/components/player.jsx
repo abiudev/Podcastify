@@ -9,7 +9,6 @@ export default function PodcastPlayer({ url, img }) {
   const podcastImage = img;
 
   useEffect(() => {
-    console.log("Fetching podcast episodes from:", podcastUrl);
     if (!podcastUrl) {
       setError(null);
       return;
@@ -18,6 +17,7 @@ export default function PodcastPlayer({ url, img }) {
     setEpisodes([]);
     setCurrentEpisodeIndex(0);
     setError(null);
+
     fetch(podcastUrl)
       .then((response) => response.text())
       .then((str) => new XMLParser().parseFromString(str))
@@ -37,7 +37,6 @@ export default function PodcastPlayer({ url, img }) {
               console.warn("Episode without audio URL:", title);
               return null;
             }
-
             return { title, url };
           })
           .filter((episode) => episode !== null);
@@ -45,7 +44,6 @@ export default function PodcastPlayer({ url, img }) {
         if (parsedEpisodes.length === 0) {
           throw new Error("No valid episodes found in the RSS feed");
         }
-
         setEpisodes(parsedEpisodes);
       })
       .catch((err) => {
@@ -68,27 +66,27 @@ export default function PodcastPlayer({ url, img }) {
 
   if (error) {
     return (
-      <div className="fixed bottom-0 left-0 right-0 bg-red-100 p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-red-100 p-4 z-50">
         <p className="text-red-700">{error}</p>
       </div>
     );
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex items-center h-24">
+    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex items-center h-24 z-50">
       <img
         src={podcastImage}
         alt="Podcast cover"
         className="h-full w-auto mr-4 rounded-md"
       />
       <div className="flex-grow flex flex-col justify-between h-full">
-        <div className="flex justify-between items-center">
-          <h3 className="text-lg font-semibold truncate mr-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold truncate w-2/3 sm:w-3/4">
             {episodes[currentEpisodeIndex]?.title || "Loading..."}
           </h3>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 w-full">
           <button
             onClick={playPrevious}
             disabled={currentEpisodeIndex === 0}
@@ -121,7 +119,6 @@ export default function PodcastPlayer({ url, img }) {
             <p className="text-gray-400">...</p>
           )}
 
-          {/* Next Button */}
           <button
             onClick={playNext}
             disabled={currentEpisodeIndex === episodes.length - 1}
