@@ -3,12 +3,12 @@ import { FaPlay, FaPlus, FaShareAlt } from "react-icons/fa";
 
 export default function ShowCard({ shows, onPlay }) {
   return (
-    <div className="mt-6 mx-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
+    <div className="mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 px-4">
       {shows.length > 0 ? (
         shows.map((show) => (
           <Card
             key={show.id}
-            className="max-w-[18rem] rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105 duration-300"
+            className="w-full max-w-[18rem] rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105 duration-300"
           >
             <img
               src={
