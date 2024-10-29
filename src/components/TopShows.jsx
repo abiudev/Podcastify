@@ -42,7 +42,14 @@ const TrendingPodcasts = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        setPodcasts(result.feeds);
+
+        const cleanedPodcasts = result.feeds.map((podcast) => ({
+          ...podcast,
+          description: podcast.description.replace(/<\/?[^>]+(>|$)/g, ""),
+        }));
+
+        setPodcasts(cleanedPodcasts);
+        console.log(result.feeds);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -60,21 +67,27 @@ const TrendingPodcasts = () => {
 
   return (
     <>
-      <div>
+      <div className="text-center  font-roboto-condensed ">
+        <h1 className=" text-4xl font-bold">
+          Here is Our <span className=" text-green-400">Trending </span> Podcast{" "}
+          Selection
+        </h1>
+        <p className="font-light">
+          Or You can <span className=" font-bold text-green-400">Search</span>{" "}
+          Your Favorite Podcats Using Our Search function
+        </p>
+      </div>
+      <div className="pb-24">
         {loading ? (
-          <Loader NameClass="flex items-center justify-center h-screen" />
+          <Loader className="flex items-center justify-center h-screen" />
         ) : (
-          <div>
-            <ShowCard shows={podcasts} onPlay={handlePlay} />{" "}
-            {currentPodcast && (
-              <PodcastPlayer
-                url={currentPodcast.url}
-                img={currentPodcast.image}
-              />
-            )}
-          </div>
+          <ShowCard shows={podcasts} onPlay={handlePlay} />
         )}
       </div>
+
+      {currentPodcast && (
+        <PodcastPlayer url={currentPodcast.url} img={currentPodcast.image} />
+      )}
     </>
   );
 };
