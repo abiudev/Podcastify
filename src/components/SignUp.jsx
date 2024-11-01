@@ -49,7 +49,10 @@ export default function SignUp({ toggleView }) {
         await createUserWithEmailAndPassword(auth, email, password);
         const user = auth.currentUser;
         console.log(user);
+<<<<<<< HEAD
         navigate("/trending");
+=======
+>>>>>>> origin/main
 
         if (user) {
           await setDoc(doc(db, "Users", user.uid), {
@@ -68,7 +71,11 @@ export default function SignUp({ toggleView }) {
       const googleUser = await signInWithPopup(auth, googleProvider);
       const user = googleUser.user;
       if (user) {
+<<<<<<< HEAD
         navigate("/trending");
+=======
+        navigate("/dashboard");
+>>>>>>> origin/main
       } else {
         toast.error("Unable to sign in. Please try again.");
       }
@@ -82,7 +89,11 @@ export default function SignUp({ toggleView }) {
       const xUser = await signInWithPopup(auth, twitterProvider);
       const user = xUser.user;
       if (user) {
+<<<<<<< HEAD
         navigate("/trending");
+=======
+        navigate("/dashboard");
+>>>>>>> origin/main
       } else {
         toast.error("Unable to sign in. Please try again.");
       }
@@ -96,7 +107,11 @@ export default function SignUp({ toggleView }) {
       const fbUser = await signInWithPopup(auth, facebookProvider);
       const user = fbUser.user;
       if (user) {
+<<<<<<< HEAD
         navigate("/trending");
+=======
+        navigate("/dashboard");
+>>>>>>> origin/main
       } else {
         toast.error("Unable to sign in. Please try again.");
       }

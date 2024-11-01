@@ -1,5 +1,9 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> origin/main
 import { auth } from "../Firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,9 +44,16 @@ export default function SignIn({ toggleView }) {
           password
         );
         const user = userCredential.user;
+<<<<<<< HEAD
 
         if (user) {
           navigate("/profile");
+=======
+        console.log(user);
+
+        if (user) {
+          navigate("/dashboard");
+>>>>>>> origin/main
         } else {
           toast.error("Unable to sign in. Please try again.");
         }

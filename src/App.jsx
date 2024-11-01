@@ -2,10 +2,18 @@
 import Axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "./components/Header.jsx";
+<<<<<<< HEAD
 import Auth from "./components/Auth.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./components/Profile.jsx";
 import ToggleProvider from "./Contexts/ToggleContext.jsx";
+=======
+import ShowCard from "./components/ShowCard.jsx";
+//import SignUpSignIn from "./components/SignInSignUp.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard.jsx";
+
+>>>>>>> origin/main
 import TopShows from "./components/TopShows.jsx";
 
 const CLIENT_ID = "1304c4c46d2d4695bd2fd9f0eacae3ea";
@@ -15,7 +23,10 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [accessToken, setAccessToken] = useState(null);
   const [shows, setShows] = useState([]);
+<<<<<<< HEAD
   const [favorites, setFavorites] = useState([]);
+=======
+>>>>>>> origin/main
 
   useEffect(() => {
     const options = {
@@ -83,6 +94,7 @@ export default function App() {
       console.error("Error fetching shows:", error);
     }
   }
+<<<<<<< HEAD
   // const toggleView = () => {
   //   setIsSignedUp(!isSignedUp);
   // };
@@ -112,5 +124,28 @@ export default function App() {
         </div>
       </Router>
     </ToggleProvider>
+=======
+
+  return (
+    <Router>
+      <div>
+        <Header
+          handleSearchChange={handleSearchChange}
+          handleSearchClick={handleSearchClick}
+          searchTerm={searchTerm}
+          shows={shows}
+        />
+
+        <ShowCard shows={shows} />
+        {/* <SignUpSignIn /> */}
+        <TopShows />
+
+        <Routes>
+          {/* <Route path="/" element={<SignIn />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    </Router>
+>>>>>>> origin/main
   );
 }

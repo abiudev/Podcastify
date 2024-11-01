@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import XMLParser from "react-xml-parser";
+<<<<<<< HEAD
 import PlayerLoader from "./PlayerLoader";
+=======
+>>>>>>> origin/main
 
 export default function PodcastPlayer({ url, img }) {
   const [episodes, setEpisodes] = useState([]);
@@ -83,7 +86,11 @@ export default function PodcastPlayer({ url, img }) {
       <div className="flex-grow flex flex-col justify-between h-full overflow-hidden">
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-semibold truncate max-w-[60%] sm:max-w-[70%] mr-2 mt-0">
+<<<<<<< HEAD
             {episodes[currentEpisodeIndex]?.title || <PlayerLoader />}
+=======
+            {episodes[currentEpisodeIndex]?.title || "Loading..."}
+>>>>>>> origin/main
           </h3>
         </div>
 

@@ -1,12 +1,16 @@
 import { Card, Typography } from "@material-tailwind/react";
 import { FaPlayCircle, FaPlus, FaRegShareSquare } from "react-icons/fa";
 
+<<<<<<< HEAD
 export default function ShowCard({
   shows,
   onPlay,
   setFavorites,
   addToFavorites,
 }) {
+=======
+export default function ShowCard({ shows, onPlay }) {
+>>>>>>> origin/main
   return (
     <div className="mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 px-4">
       {shows.length > 0 ? (
@@ -31,6 +35,10 @@ export default function ShowCard({
               </Typography>
               <Typography className="mt-2 text-sm text-gray-600 h-20 overflow-hidden">
                 {" "}
+<<<<<<< HEAD
+=======
+                {/* Set a fixed height for the description */}
+>>>>>>> origin/main
                 {show.description.length > 100
                   ? `${show.description.substring(0, 100)}...`
                   : show.description}
@@ -50,10 +58,14 @@ export default function ShowCard({
               </div>
               <div className="flex flex-col items-center">
                 <button
+<<<<<<< HEAD
                   onClick={() => {
                     addToFavorites(show.id);
                     console.log(show);
                   }}
+=======
+                  onClick={() => console.log("Add to playlist")}
+>>>>>>> origin/main
                   className="text-green-400 hover:text-blue-700"
                 >
                   <FaPlus size={20} />

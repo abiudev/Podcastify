@@ -3,8 +3,14 @@ import CryptoJS from "crypto-js";
 import ShowCard from "./ShowCard.jsx";
 import Loader from "./Loader.jsx";
 import PodcastPlayer from "./player.jsx";
+<<<<<<< HEAD
 
 const TopShows = ({ favorites, setFavorites }) => {
+=======
+import Player from "./player.jsx";
+
+const TrendingPodcasts = () => {
+>>>>>>> origin/main
   const [podcasts, setPodcasts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -49,10 +55,14 @@ const TopShows = ({ favorites, setFavorites }) => {
 
         setPodcasts(cleanedPodcasts);
         console.log(result.feeds);
+<<<<<<< HEAD
 
         setLoading(false);
         const ids = result.feeds.map((feed) => feed.id);
         console.log(ids);
+=======
+        setLoading(false);
+>>>>>>> origin/main
       } catch (error) {
         setError(error.message);
         console.error("Error fetching podcasts:", error);
@@ -66,10 +76,13 @@ const TopShows = ({ favorites, setFavorites }) => {
     setCurrentPodcast(podcast);
     console.log("Current Podcast:", podcast);
   };
+<<<<<<< HEAD
   const addToFavorites = (ids) => {
     const showToAdd = podcasts.find((p) => p.id === ids);
     setFavorites([...favorites, showToAdd]);
   };
+=======
+>>>>>>> origin/main
 
   return (
     <>
@@ -87,11 +100,15 @@ const TopShows = ({ favorites, setFavorites }) => {
         {loading ? (
           <Loader className="flex items-center justify-center h-screen" />
         ) : (
+<<<<<<< HEAD
           <ShowCard
             shows={podcasts}
             addToFavorites={addToFavorites}
             onPlay={handlePlay}
           />
+=======
+          <ShowCard shows={podcasts} onPlay={handlePlay} />
+>>>>>>> origin/main
         )}
       </div>
 
@@ -102,4 +119,8 @@ const TopShows = ({ favorites, setFavorites }) => {
   );
 };
 
+<<<<<<< HEAD
 export default TopShows;
+=======
+export default TrendingPodcasts;
+>>>>>>> origin/main
